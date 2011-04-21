@@ -1,4 +1,6 @@
 FantasyCongress::Application.routes.draw do
+  resources :congressmen, :user_sessions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

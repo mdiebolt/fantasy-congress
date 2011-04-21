@@ -1,12 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
+gem "authlogic-connect"
+gem 'barista', '~> 1.0'
+gem "compass", ">= 0.10.2"
 gem 'haml'
+gem 'jquery-rails'
+gem 'json'
+gem 'rails', '3.0.5'
+gem 'therubyracer', :require => nil
+gem 'sqlite3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
