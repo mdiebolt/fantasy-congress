@@ -1,5 +1,10 @@
 FantasyCongress::Application.routes.draw do
-  resources :congressmen, :user_sessions
+  resources :congressmen, :password_resets, :user_sessions, :users
+
+  match "login" => "user_sessions#new", :as => :login
+  match "logout" => "user_sessions#destroy", :as => :logout
+  match 'authenticate' => 'user_sessions#create', :as => :authenticate, :via => :post
+  match "sign_up" => "users#new", :as => :signup
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

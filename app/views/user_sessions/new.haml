@@ -1,0 +1,26 @@
+%h3 Log In or Sign Up
+= render :partial => 'form'
+  = link_to_function "Create a new account with Pixie", "$('#create').show(); $('#logIn').hide()", :class => "button"
+  = link_to_function "Log in with your Pixie account", "$('#create').hide(); $('#logIn').show()", :class => "button"
+
+#create{:style => "display: none;"}
+  = render :partial => 'users/form', :locals => {:user => User.new}
+#logIn{:style => "display: none;"}
+  = render :partial => "form"
+
+:coffee
+  $ ->
+    $form = $(".authentication_form")
+
+    $("li.oauth_provider").each (index, element) ->
+      li = $(element)
+      input = $("input", li)
+      input.css("display", "none")
+      li.css("cursor", "pointer")
+      li.data("oauth", input)
+      li.click (event) ->
+        event.preventDefault()
+        li.data("oauth").attr("checked", "checked")
+        $form.submit()
+        $form.find('input[name=submit]').click()
+        return false

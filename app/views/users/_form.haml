@@ -1,0 +1,20 @@
+= form_for @user do |form|
+  = form.error_messages
+  %h2 Sign up for Pixie!
+
+  %p
+    = form.label :display_name
+    = form.text_field :display_name
+  %p
+    = form.label :email
+    = form.text_field :email
+  %p
+    = form.label :password
+    = form.password_field :password
+
+  %button Sign Up
+
+:coffeescript
+  $ ->
+    $('#user_submit').click ->
+      _gaq.push(['_trackEvent', 'action_button', 'register'])
