@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
     config.validate_password_field :no_connected_sites?
     config.require_password_confirmation = false
   end
+
+  def to_s
+    display_name
+  end
 end

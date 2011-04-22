@@ -6,7 +6,7 @@
     %h3 What is your email address?
     = form.text_field :email
 
-  %h3 Do you have a Pixie password?
+  %h3 Do you have a Fantasy Congress password?
 
   %label(for="user_session_login_no")
     = form.radio_button :login, "no"
@@ -26,7 +26,7 @@
   $ ->
     loginMode = (login) ->
       if login
-        $('#user_session_password').removeAttr('disabled');
+        $('#user_session_password').removeAttr('disabled')
         $('#user_session_submit').text('Log In')
       else
         $('#user_session_password').attr('disabled', true)
@@ -43,8 +43,3 @@
         $('#user_session_login_no').click()
         loginMode(false)
     , 10
-
-%style
-  :sass
-    #new_user_session
-      width: 450px

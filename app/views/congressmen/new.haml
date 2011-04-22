@@ -1,9 +1,4 @@
-%h1 Woo
-
-:coffee
-  alert "does this work?"
-
-%style
-  :sass
-    body
-      background-color: #ddd
+-if current_user
+  %h1 Woo
+- else
+  %h1 Sux

@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
     email = session.delete(:email) || ''
 
-    @user.email ||= email
-    @user.display_name = email[0..((email.index('@') || 0) - 1)]
+    user.email ||= email
+    user.display_name = email[0..((email.index('@') || 0) - 1)]
   end
 
   def create
@@ -17,15 +17,13 @@ class UsersController < ApplicationController
 
     @user.save do |result|
       if result
-
         respond_to do |format|
           format.html do
             @registered = true
-            redirect_to @user, :notice => REGISTERED_FLASH
+            redirect_to user, :notice => REGISTERED_FLASH
           end
           format.json { render :json => {:status => "ok"} }
         end
-
       else
         respond_to do |format|
           format.html { render :action => :new }
@@ -63,7 +61,13 @@ class UsersController < ApplicationController
   helper_method :current_user?
 
   def user
-    User.find(params[:id])
+    return @user if defined?(@user)
+
+    if params[:id] == "current"
+      @user = current_user
+    else
+      @user = User.find params[:id]
+    end
   end
   helper_method :user
 

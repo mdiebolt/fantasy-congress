@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
           respond_to do |format|
             format.html do
               flash[:notice] = "Login successful!"
-              redirect_back_or_default root_path
+              redirect_back_or_default user_path(current_user)
             end
             format.json { render :json => {:status => "ok"} }
           end

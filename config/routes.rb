@@ -6,6 +6,8 @@ FantasyCongress::Application.routes.draw do
   match 'authenticate' => 'user_sessions#create', :as => :authenticate, :via => :post
   match "sign_up" => "users#new", :as => :signup
 
+  root :to => "user_sessions#create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
