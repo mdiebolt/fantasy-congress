@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421234533) do
+ActiveRecord::Schema.define(:version => 20110422232859) do
 
   create_table "congressmen", :force => true do |t|
-    t.string   "name",                :null => false
-    t.integer  "alignment",           :null => false
-    t.string   "party",               :null => false
-    t.integer  "minutes_on_floor",    :null => false
-    t.integer  "votes_against_party", :null => false
-    t.integer  "votes_with_majority", :null => false
-    t.integer  "popularity",          :null => false
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "name",                                  :null => false
+    t.string   "nyt_api_id",                            :null => false
+    t.string   "party",                    :limit => 1, :null => false
+    t.integer  "bills_sponsored",                       :null => false
+    t.integer  "bills_cosponsored",                     :null => false
+    t.integer  "missed_votes_percent",                  :null => false
+    t.integer  "votes_with_party_percent",              :null => false
+    t.string   "state",                    :limit => 2, :null => false
+    t.integer  "committees",                            :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "users", :force => true do |t|

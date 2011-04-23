@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* line 4, ../../app/stylesheets/form.sass */
+body {
+  padding: 3em;
+}
+
+/* line 8, ../../app/stylesheets/form.sass */
+body > form button {
+  height: 30px;
+}
+
+/* line 11, ../../app/stylesheets/form.sass */
+body > form {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  background-color: #b2e2ff;
+  margin: auto;
+  padding: 1.5em 2em;
+  width: 300px;
+}
+/* line 19, ../../app/stylesheets/form.sass */
+body > form input {
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+/* line 23, ../../app/stylesheets/form.sass */
+body > form .actions {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: auto;
+  width: 100%;
+}
+
+/* line 30, ../../app/stylesheets/form.sass */
+form .field_with_errors, #new_user .field_with_errors, #new_user_session .field_with_errors {
+  display: inline;
+}
+/* line 33, ../../app/stylesheets/form.sass */
+form .field_with_errors label, #new_user .field_with_errors label, #new_user_session .field_with_errors label {
+  color: #cd0a0a;
+}
+/* line 36, ../../app/stylesheets/form.sass */
+form .field_with_errors input, #new_user .field_with_errors input, #new_user_session .field_with_errors input {
+  border: 2px solid #cd0a0a;
+}
+/* line 39, ../../app/stylesheets/form.sass */
+form .errorExplanation, #new_user .errorExplanation, #new_user_session .errorExplanation {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #fef1ec;
+  border: 1px solid #cd0a0a;
+  color: #cd0a0a;
+  margin-bottom: 1.5em;
+  padding: 1em 1.5em;
+}
+/* line 48, ../../app/stylesheets/form.sass */
+form .errorExplanation h2, #new_user .errorExplanation h2, #new_user_session .errorExplanation h2 {
+  font-size: 150%;
+}
+
+/* line 51, ../../app/stylesheets/form.sass */
+label, input, textarea {
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* line 56, ../../app/stylesheets/form.sass */
+label {
+  display: block;
+  font-weight: bold;
+  margin-right: 1em;
+  padding-top: 0.5em;
+}
+
+/* line 62, ../../app/stylesheets/form.sass */
+input[disabled] {
+  background-color: #cccccc;
+}
+
+/* line 65, ../../app/stylesheets/form.sass */
+input[type=text], input[type=password], input[type=file], textarea {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+}
+/* line 70, ../../app/stylesheets/form.sass */
+input[type=text]:focus, input[type=password]:focus, input[type=file]:focus, textarea:focus {
+  border-width: 2px;
+  border-color: #1084ce;
+}
+
+/* line 74, ../../app/stylesheets/form.sass */
+input[type=file] {
+  margin-top: 0.5em;
+  padding: 0;
+}
+
+/* line 78, ../../app/stylesheets/form.sass */
+input[type=text], input[type=password], textarea {
+  border: 2px solid #aaaaaa;
+  width: 300px;
+}
+
+/* line 82, ../../app/stylesheets/form.sass */
+textarea {
+  width: 300px;
+  height: 150px;
+}

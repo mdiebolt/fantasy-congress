@@ -1,3 +1,9 @@
+@import compass/css3
+@import partials/base
+
+body
+  padding: 3em
+
 body > form
   button
     height: 30px
@@ -5,7 +11,7 @@ body > form
 body > form
   +border-radius
 
-  background-color: $dark_highlight
+  background-color: $light_highlight
   margin: auto
   padding: 1.5em 2em
   width: 300px
@@ -13,9 +19,6 @@ body > form
   input
     margin-bottom: 1em
     margin-right: 1em
-
-  .light &
-    background-color: $light_highlight
 
   .actions
     +box-sizing(border-box)
@@ -77,4 +80,5 @@ input[type=text], input[type=password], textarea
   width: 300px
 
 textarea
-  +bounds(300px, 150px)
+  width: 300px
+  height: 150px
