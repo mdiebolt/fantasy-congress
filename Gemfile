@@ -7,7 +7,6 @@ gem 'barista', '~> 1.0'
 gem "compass", ">= 0.10.2"
 gem 'haml'
 gem 'jquery-rails'
-gem 'json'
 gem 'nytimes-congress'
 gem 'rails', '3.0.5'
 gem 'therubyracer-heroku', '0.8.1.pre3'
