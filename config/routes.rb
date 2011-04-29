@@ -1,5 +1,13 @@
 FantasyCongress::Application.routes.draw do
-  resources :congressmen, :password_resets, :user_sessions, :users
+  resources :congressmen, :password_resets, :user_sessions
+
+  resources :users do
+    member do
+      get :draft
+
+      post :draft_congressmen
+    end
+  end
 
   match "login" => "user_sessions#new", :as => :login
   match "logout" => "user_sessions#destroy", :as => :logout

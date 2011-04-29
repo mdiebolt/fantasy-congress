@@ -1,0 +1,138 @@
+%style
+  :sass
+    @import util
+
+    .congressman
+      cursor: pointer
+
+      .gloss
+        +gloss
+
+        position: absolute
+
+      h2
+        +user-select
+
+    .slots
+      img
+        +border-radius
+
+      .slot
+        +border-radius
+        +bounds(100px, 125px)
+
+        background-color: #CCC
+        border: 2px dashed gray
+        box-sizing: border-box
+        display: inline-block
+
+%h1 Draft your new team!
+.slots
+  .slot
+  .slot
+  .slot
+  .slot
+  .slot
+  .slot
+  .slot
+.info
+  %span.number 0
+  selected
+  |
+  %span.rep_selected 0
+  Republicans
+  |
+  %span.dem_selected 0
+  Democrats
+  |
+  %span.ind_selected 0
+  Independents
+
+  %button#save
+    Add to team
+
+= render :partial => "congressmen/congressman", :collection => @data
+
+:coffee
+  $ ->
+    total_selected = 0
+    rep_selected = 0
+    dem_selected = 0
+    ind_selected = 0
+
+    deselect_legislator = (element, img) ->
+      party = element.find('li:first').attr('class')
+      origin_position = element.find('ul')
+
+      element.removeClass('selected')
+
+      img.insertBefore(origin_position)
+      $('.slots').append('<div class="slot"></div>')
+
+      total_selected--
+
+      switch party
+        when 'dem' then dem_selected--
+        when 'rep' then rep_selected--
+        when 'ind' then ind_selected--
+
+      update_counts()
+
+    select_legislator = (element) ->
+      party = element.find('li:first').attr('class')
+      img = element.find('img')
+
+      element.addClass('selected')
+
+      $('.slot:first').before(img).remove()
+
+      total_selected++
+
+      switch party
+        when 'dem' then dem_selected++
+        when 'rep' then rep_selected++
+        when 'ind' then ind_selected++
+
+      update_counts()
+
+    update_counts = ->
+      $('.number').text(total_selected)
+      $('.rep_selected').text(rep_selected)
+      $('.dem_selected').text(dem_selected)
+      $('.ind_selected').text(ind_selected)
+
+    $('.slots>img').live "mousedown", (e) ->
+      e.preventDefault()
+
+      $this = $(this)
+
+      name = $this.attr('title')
+
+      congressman = $('.congressman h2:contains('+name+')').parent()
+
+      deselect_legislator(congressman, $this)
+
+    $('.congressman').live "mousedown", (e) ->
+      e.preventDefault()
+      $this = $(this)
+
+      return if total_selected > 6
+
+      select_legislator($this) unless $this.hasClass('selected')
+
+    $('#save').click ->
+      if total_selected != 7
+        alert("Please select 7 legislators")
+      else
+        user_id = "#{current_user.id}"
+        congressmen_ids = $('.congressman.selected').map((index, element) ->
+          return $(element).data('id')
+        ).get()
+
+        data =
+          user_id: user_id
+          congressmen_ids: congressmen_ids
+
+        $('.congressman.selected').removeClass('selected')
+
+        $.post "#{draft_congressmen_user_path(current_user.id)}", data

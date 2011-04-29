@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gems.github.com'
 
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 gem "authlogic-connect"
@@ -7,9 +8,11 @@ gem "compass", ">= 0.10.2"
 gem 'haml'
 gem 'jquery-rails'
 gem 'json'
+gem 'nytimes-congress'
 gem 'rails', '3.0.5'
 gem 'therubyracer', :require => nil
 gem 'sqlite3'
+gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

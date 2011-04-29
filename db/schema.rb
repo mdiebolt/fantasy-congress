@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110422232859) do
+ActiveRecord::Schema.define(:version => 20110429203223) do
 
   create_table "congressmen", :force => true do |t|
     t.string   "name",                                  :null => false
@@ -18,12 +18,19 @@ ActiveRecord::Schema.define(:version => 20110422232859) do
     t.string   "party",                    :limit => 1, :null => false
     t.integer  "bills_sponsored",                       :null => false
     t.integer  "bills_cosponsored",                     :null => false
-    t.integer  "missed_votes_percent",                  :null => false
-    t.integer  "votes_with_party_percent",              :null => false
+    t.float    "missed_votes_percent",                  :null => false
+    t.float    "votes_with_party_percent",              :null => false
     t.string   "state",                    :limit => 2, :null => false
     t.integer  "committees",                            :null => false
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "user_congressmen", :force => true do |t|
+    t.integer  "user_id",        :null => false
+    t.integer  "congressman_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -44,5 +51,26 @@ ActiveRecord::Schema.define(:version => 20110422232859) do
     t.datetime "updated_at",                         :null => false
     t.string   "display_name"
   end
+
+  create_table "versions", :force => true do |t|
+    t.integer  "versioned_id"
+    t.string   "versioned_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "user_name"
+    t.text     "modifications"
+    t.integer  "number"
+    t.integer  "reverted_from"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "versions", ["created_at"], :name => "index_versions_on_created_at"
+  add_index "versions", ["number"], :name => "index_versions_on_number"
+  add_index "versions", ["tag"], :name => "index_versions_on_tag"
+  add_index "versions", ["user_id", "user_type"], :name => "index_versions_on_user_id_and_user_type"
+  add_index "versions", ["user_name"], :name => "index_versions_on_user_name"
+  add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
 
 end

@@ -1,1 +1,19 @@
-%h2 #{user.display_name}'s roster
+%style
+  :sass
+    h1
+      margin-bottom: 1em
+
+    .congressman
+      display: block
+
+      ul
+        width: 260px
+
+%h1
+  #{user.display_name}'s current roster
+
+- if @data.empty?
+  You don't have a team.
+  = link_to "Draft one now", draft_user_path(current_user)
+- else
+  = render :partial => "congressman", :collection => @data

@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/adamcooper/vestal_versions
+  revision: 6273df533f85014062e346cb1807b0531a809ee2
+  specs:
+    vestal_versions (1.2.2)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/odorcicd/authlogic.git
   revision: a087ad0cba3c165ba22fcf176c28b6f7517931e8
   branch: rails3
@@ -8,6 +16,7 @@ GIT
 
 GEM
   remote: http://rubygems.org/
+  remote: http://gems.github.com/
   specs:
     abstract (1.0.0)
     actionmailer (3.0.5)
@@ -75,6 +84,8 @@ GEM
     mime-types (1.16)
     multi_json (0.0.5)
     multipart-post (1.1.0)
+    nytimes-congress (1.4.1)
+      json (>= 1.1.3)
     oauth (0.4.4)
     oauth2 (0.4.0)
       faraday (~> 0.6.0)
@@ -121,6 +132,8 @@ DEPENDENCIES
   haml
   jquery-rails
   json
+  nytimes-congress
   rails (= 3.0.5)
   sqlite3
   therubyracer
+  vestal_versions!

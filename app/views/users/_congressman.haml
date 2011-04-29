@@ -1,0 +1,35 @@
+- current = congressman[0]
+- prev = congressman[1]
+
+.congressman{ 'data-id' => current["id"] }
+  %h2= current["name"]
+  .gloss
+  .thumb
+    = image_tag("congress/#{congressman[0]["nyt_api_id"]}.jpg", :alt => current["name"], :title => current["name"])
+    %ul.square
+      - if current["party"] == 'D'
+        %li.dem
+          Party:
+          = current["party"]
+      - elsif current["party"] == 'R'
+        %li.rep
+          Party:
+          = current["party"]
+      - else
+        %li.ind
+          Party:
+          = current["party"]
+      %li
+        Bills sponsored: #{current["bills_sponsored"]} (#{prev["bills_sponsored"]})
+      %li
+        Bills cosponsored: #{current["bills_cosponsored"]} (#{prev["bills_cosponsored"]})
+      %li
+        Missed votes: #{current["missed_votes_percent"]} (#{prev["missed_votes_percent"]})
+      %li
+        Votes with party: #{current["votes_with_party_percent"]} (#{prev["votes_with_party_percent"]})
+      %li
+        State:
+        = current["state"]
+      %li
+        Committees:
+        = current["committees"]

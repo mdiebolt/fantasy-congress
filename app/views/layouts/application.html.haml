@@ -2,9 +2,15 @@
 %html
   %head
     %title Fantasy Congress
-    = stylesheet_link_tag :all
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'screen'
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+
+    -# fall back to local jQuery if necessary
+    :javascript
+      if(!window.jQuery) {
+        document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'));
+      }
+    = javascript_include_tag 'application'
     = csrf_meta_tag
   %body
     = yield

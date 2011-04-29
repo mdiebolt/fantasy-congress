@@ -1,53 +1,67 @@
-require 'net/http'
-require 'cgi'
+require 'ny-times-congress'
+include NYTimes::Congress
 
-API_KEY = "3a9507e6cb222e3777ce004dafd1b03d:6:63643765"
+Base.api_key = '3a9507e6cb222e3777ce004dafd1b03d:6:63643765'
 
 namespace :congress do
-  desc 'updating congress data from the NYT Congress API'
+  desc 'update senate data using ny-times-congress gem'
   task :update_senate => :environment do
-    STATES = ["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+    senate = Congress.new(112, 'senate')
+    senators = senate.members
 
-    domain = "api.nytimes.com"
+    senators.each do |senator_data|
+      id = senator_data[0]
+      senator = senator_data[1]
+      role = senator.roles.first
 
-    # TODO look up congressmen by their NYT api id and update rather than crush them
-    Congressman.destroy_all
+      sleep 1
 
-    STATES.each do |state|
-      current_congressman_path = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/senate/#{state}/current.json?api-key=#{API_KEY}"
+      attributes = {
+        :party => role.party.first,
+        :name => "#{senator.first_name} #{senator.last_name}",
+        :bills_sponsored => role.bills_sponsored,
+        :bills_cosponsored => role.bills_cosponsored,
+        :missed_votes_percent => role.missed_votes_pct,
+        :votes_with_party_percent => role.votes_with_party_pct,
+        :state => role.state,
+        :committees => 0
+      }
 
-      bio = JSON.parse(Net::HTTP.get(domain, current_congressman_path))
+      if Congressman.find_by_nyt_api_id(id)
+        Congressman.find_by_nyt_api_id(id).update_attributes(attributes)
+      else
+        Congressman.create!(attributes.merge(:nyt_api_id => id))
+      end
+    end
+  end
 
-      bio["results"].each do |member|
-        id = member["id"]
+  desc 'update house data using ny-times-congress gem'
+  task :update_house => :environment do
+    house = Congress.new(112, 'house')
+    legislators = house.members
 
-        role_path = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/#{id}.json?api-key=#{API_KEY}"
+    legislators.each do |legislator_data|
+      id = legislator_data[0]
+      legislator = legislator_data[1]
+      role = legislator.roles.first
 
-        role = JSON.parse(Net::HTTP.get(domain, role_path))["results"][0]
-        current_congress = role["roles"][0]
+      sleep 2
 
-        name = role["first_name"] + " " + role["last_name"]
-        party = current_congress["party"]
-        bills_sponsored = current_congress["bills_sponsored"]
-        bills_cosponsored = current_congress["bills_cosponsored"]
-        missed_votes = current_congress["missed_votes_pct"]
-        votes_with_party = current_congress["votes_with_party_pct"]
-        state = current_congress["state"]
-        committees = current_congress["committees"].length
+      attributes = {
+        :party => role.party.first,
+        :name => "#{legislator.first_name} #{legislator.last_name}",
+        :bills_sponsored => role.bills_sponsored,
+        :bills_cosponsored => role.bills_cosponsored,
+        :missed_votes_percent => role.missed_votes_pct,
+        :votes_with_party_percent => role.votes_with_party_pct,
+        :state => role.state,
+        :committees => 0
+      }
 
-        Congressman.create!({
-          :nyt_api_id => id,
-          :party => party,
-          :name => name,
-          :bills_sponsored => bills_sponsored.to_i,
-          :bills_cosponsored => bills_cosponsored.to_i,
-          :missed_votes_percent => missed_votes.to_i,
-          :votes_with_party_percent => votes_with_party.to_i,
-          :state => state,
-          :committees => committees
-        })
-
-        sleep 1
+      if Congressman.find_by_nyt_api_id(id)
+        Congressman.find_by_nyt_api_id(id).update_attributes(attributes)
+      else
+        Congressman.create!(attributes.merge(:nyt_api_id => id))
       end
     end
   end

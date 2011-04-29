@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_current_user, :only => [:edit, :update]
+  before_filter :require_current_user, :only => [:edit, :update, :draft, :show]
 
   REGISTERED_FLASH = "Account registered!"
 
@@ -39,6 +39,46 @@ class UsersController < ApplicationController
   end
 
   def show
+    @congressmen = current_user.congressmen
+
+    current = @congressmen.map(&:attributes)
+
+    @congressmen.each do |c|
+      c.revert_to(c.version - 1)
+    end
+
+    prev = @congressmen.map(&:attributes)
+
+    @data = current.zip(prev)
+  end
+
+  def draft
+    @congressmen = Congressman.all
+
+    current = @congressmen.map(&:attributes)
+
+    @congressmen.each do |c|
+      c.revert_to(c.version - 1)
+    end
+
+    prev = @congressmen.map(&:attributes)
+
+    @data = current.zip(prev)
+  end
+
+  def draft_congressmen
+    user_id = params[:user_id]
+    congressmen_ids = params[:congressmen_ids]
+
+    UserCongressman.find_all_by_user_id(user_id).each(&:destroy)
+
+    results = congressmen_ids.map do |congressmen_id|
+      UserCongressman.create({ :user_id => user_id, :congressmen_id => congressmen_id })
+    end
+
+    respond_to do |format|
+      format.json { render :json => results }
+    end
   end
 
   private
