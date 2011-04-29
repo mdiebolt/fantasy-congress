@@ -6,7 +6,7 @@ gem 'barista', '~> 1.0'
 gem "compass", ">= 0.10.2"
 gem 'haml'
 gem 'jquery-rails'
-gem 'json_pure'
+gem 'json'
 gem 'nytimes-congress'
 gem 'rails', '3.0.7'
 gem 'therubyracer-heroku', '0.8.1.pre3'
@@ -17,6 +17,7 @@ group :development do
 end
 
 group :production do
+  gem "json"
   gem "pg"
 end
 
