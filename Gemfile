@@ -12,6 +12,7 @@ gem 'nytimes-congress'
 gem 'rails', '3.0.5'
 gem 'therubyracer', :require => nil
 gem 'sqlite3'
+gem 'therubyracer-heroku', '0.8.1.pre3'
 gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 
 # Bundle edge Rails instead:
