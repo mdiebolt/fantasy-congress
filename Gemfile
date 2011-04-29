@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-source 'http://gems.github.com'
 
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 gem "authlogic-connect"
