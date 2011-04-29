@@ -131,7 +131,6 @@ DEPENDENCIES
   compass (>= 0.10.2)
   haml
   jquery-rails
-  json
   nytimes-congress
   rails (= 3.0.5)
   sqlite3
