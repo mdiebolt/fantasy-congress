@@ -10,9 +10,12 @@ gem 'jquery-rails'
 gem 'json'
 gem 'nytimes-congress'
 gem 'rails', '3.0.5'
-gem 'sqlite3'
 gem 'therubyracer-heroku', '0.8.1.pre3'
 gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
+
+group :development do
+  gem 'sqlite3'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
