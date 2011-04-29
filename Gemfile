@@ -8,7 +8,7 @@ gem "compass", ">= 0.10.2"
 gem 'haml'
 gem 'jquery-rails'
 gem 'nytimes-congress'
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.7'
 gem 'therubyracer-heroku', '0.8.1.pre3'
 gem 'vestal_versions', :git => 'git://github.com/adamcooper/vestal_versions'
 
