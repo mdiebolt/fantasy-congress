@@ -3,6 +3,5 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
-require 'json_pure'
 
 FantasyCongress::Application.load_tasks
