@@ -131,7 +131,7 @@ DEPENDENCIES
   compass (>= 0.10.2)
   haml
   jquery-rails
-  json
+  json (= 1.5.1)
   nytimes-congress
   pg
   rails (= 3.0.7)
