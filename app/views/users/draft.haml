@@ -1,9 +1,23 @@
 %style
   :sass
     @import util
+    @import partials/base
+
+    #filter
+      margin-left: 1em
+      width: 297px
+
+    .info
+      padding-bottom: 1em
+      padding-top: 1em
+
+    .container
+      min-width: 800px
+      width: 100%
 
     .congressman
       cursor: pointer
+      display: inline-block
 
       .gloss
         +gloss
@@ -14,6 +28,8 @@
         +user-select
 
     .slots
+      display: inline-block
+
       img
         +border-radius
 
@@ -21,20 +37,34 @@
         +border-radius
         +bounds(100px, 125px)
 
-        background-color: #CCC
-        border: 2px dashed gray
+        background-color: $gray
+        border: 2px dashed darken($gray, 20)
         box-sizing: border-box
         display: inline-block
+
+    #save
+      margin-left: 1em
+      margin-top: -105px
 
 %h1 Draft your new team!
 .slots
   .slot
+    .gloss
   .slot
+    .gloss
   .slot
+    .gloss
   .slot
+    .gloss
   .slot
+    .gloss
   .slot
+    .gloss
   .slot
+    .gloss
+%button#save
+  Save team
+
 .info
   %span.number 0
   selected
@@ -48,13 +78,18 @@
   %span.ind_selected 0
   Independents
 
-  %button#save
-    Add to team
+  %input#filter(type="text" placeholder="Filter congressmen by name")
 
-= render :partial => "congressmen/congressman", :collection => @data
+.congress.container
+  %ul
+    = render :partial => "congressmen/congressman", :collection => @data
+
+= javascript_include_tag "jquery.liveUpdate", "quicksilver"
 
 :coffee
   $ ->
+    $('#filter').liveUpdate('.congress ul', 'li.congressman', 'h2')
+
     total_selected = 0
     rep_selected = 0
     dem_selected = 0
@@ -66,6 +101,7 @@
 
       element.removeClass('selected')
 
+      origin_position.parent().parent().find('.gloss').show()
       img.insertBefore(origin_position)
       $('.slots').append('<div class="slot"></div>')
 
@@ -84,6 +120,7 @@
 
       element.addClass('selected')
 
+      element.find('.gloss').hide()
       $('.slot:first').before(img).remove()
 
       total_selected++

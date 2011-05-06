@@ -1,9 +1,50 @@
+@import compass/css3
+@import partials/base
+
+.header
+  +border-bottom-radius(8px)
+
+  background-color: $red
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#590815), to(#800C1F), color-stop(.7,#800C1F))
+  border-bottom: 4px solid white
+  left: 0
+  margin: auto
+  min-width: 600px
+  position: absolute
+  right: 0
+  top: 0
+  height: 20px
+  width: 50%
+
+  li
+    display: inline-block
+    padding-top: 2px
+    padding-left: 1em
+    padding-right: 1em
+
+    a
+      color: $gray
+      text-decoration: none
+
+      &:hover
+        color: lighten($gray, 10)
+
+a
+  color: $link
+  text-decoration: underline
+
+  &:hover
+    color: lighten($link, 10)
+    text-decoration: none
+
 #login_link
   position: absolute
   top: 13px
   right: 40px
 
 body
+  background-color: $background
+  color: $font
   font-family: helvetica, arial, sans-serif
 
 h1
@@ -13,7 +54,15 @@ h2
   font-size: 1.5em
   margin-bottom: 0.25em
 h3
-  font-size: 1.25em
+  font-size: 0.9em
+
+.container
+  +border-radius(8px)
+
+  background-color: $component
+  color: $component_font
+  padding: 1em
+  width: 360px
 
 .congressman
   display: inline-block
@@ -40,13 +89,13 @@ ul
     list-style: disc inside
 
 .rep
-  color: red
+  color: $red
 
 .dem
-  color: blue
+  color: $background
 
 .ind
-  color: gray
+  color: $gray
 
 .green
   color: green

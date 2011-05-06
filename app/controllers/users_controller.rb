@@ -72,8 +72,8 @@ class UsersController < ApplicationController
 
     UserCongressman.find_all_by_user_id(user_id).each(&:destroy)
 
-    results = congressmen_ids.map do |congressmen_id|
-      UserCongressman.create({ :user_id => user_id, :congressmen_id => congressmen_id })
+    results = congressmen_ids.map do |congressman_id|
+      UserCongressman.create({ :user_id => user_id, :congressman_id => congressman_id })
     end
 
     respond_to do |format|

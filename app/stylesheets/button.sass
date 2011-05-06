@@ -1,0 +1,30 @@
+@import compass/css3
+@import partials/base
+
+button
+  border: none
+
+button, .button
+  +border-radius(10px)
+  +box-shadow(black, 0, 1px)
+
+  border-top: 1px solid $lighter_red
+  background-color: $red
+  background: -webkit-gradient(linear, left top, left bottom, from($dark_red), to($red))
+  background: -moz-linear-gradient(top, $dark_red, $red)
+  padding: 9px 18px
+  text-shadow: rgba(0,0,0,.4) 0 1px 0
+  color: white
+  font-size: 20px
+  font-family: Helvetica, Arial, Sans-Serif
+  text-decoration: none
+  vertical-align: middle
+
+  &:hover
+    border-top-color: $red
+    background: $red
+    color: $gray
+
+  &:active
+    border-top-color: $dark_red
+    background: $dark_red

@@ -1,19 +1,32 @@
 %style
   :sass
+    @import util
+
     h1
-      margin-bottom: 1em
+      margin-bottom: 0.5em
+      margin-left: auto
+      margin-right: auto
+      width: 50%
+
+    .container
+      margin: auto
+      width: 620px
 
     .congressman
-      display: block
+      .gloss
+        +gloss
+
+        position: absolute
 
       ul
         width: 260px
 
 %h1
-  #{user.display_name}'s current roster
+  #{user.display_name}'s roster
 
 - if @data.empty?
   You don't have a team.
   = link_to "Draft one now", draft_user_path(current_user)
 - else
-  = render :partial => "congressman", :collection => @data
+  .congress.container
+    = render :partial => "congressman", :collection => @data

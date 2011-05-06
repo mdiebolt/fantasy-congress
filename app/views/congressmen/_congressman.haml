@@ -1,8 +1,12 @@
 - current = congressman[0]
 - prev = congressman[1]
 
-.congressman{ 'data-id' => current["id"] }
-  %h2= current["name"]
+%li.congressman{ 'data-id' => current["id"] }
+  %h2
+    = current["name"]
+    (
+    =current["state"]
+    )
   .gloss
   .thumb
     = image_tag("congress/#{congressman[0]["nyt_api_id"]}.jpg", :alt => current["name"], :title => current["name"])
@@ -36,9 +40,6 @@
       %li
         Votes with party:
         = current["votes_with_party_percent"]
-      %li
-        State:
-        = current["state"]
       %li
         Committees:
         = current["committees"]
