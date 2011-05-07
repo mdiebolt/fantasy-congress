@@ -1,11 +1,10 @@
-require 'ny-times-congress'
-include NYTimes::Congress
-
 Base.api_key = '3a9507e6cb222e3777ce004dafd1b03d:6:63643765'
 
 namespace :congress do
   desc 'update senate data using ny-times-congress gem'
   task :update_senate => :environment do
+    include NYTimes::Congress
+
     senate = Congress.new(112, 'senate')
     senators = senate.members
 
@@ -37,6 +36,8 @@ namespace :congress do
 
   desc 'update house data using ny-times-congress gem'
   task :update_house => :environment do
+    include NYTimes::Congress
+
     house = Congress.new(112, 'house')
     legislators = house.members
 
