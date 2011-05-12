@@ -44,7 +44,6 @@
 
     #save
       margin-left: 1em
-      margin-top: -105px
 
 %h1 Draft your new team!
 .slots
@@ -62,8 +61,10 @@
     .gloss
   .slot
     .gloss
-%button#save
-  Save team
+.name_container
+  %input#team_name(type="text" value="#{current_user.display_name}'s team")
+  %button#save
+    Save team
 
 .info
   %span.number 0
@@ -169,6 +170,7 @@
         data =
           user_id: user_id
           congressmen_ids: congressmen_ids
+          name: $('#team_name').val()
 
         $('.congressman.selected').removeClass('selected')
 

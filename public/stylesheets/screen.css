@@ -204,6 +204,7 @@ textarea {
   -ms-border-bottom-right-radius: 8px;
   -khtml-border-bottom-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  text-shadow: #444444 0 1px 1px;
   background-color: #800c1f;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#590815), to(#800c1f), color-stop(0.7, #800c1f));
   border-bottom: 4px solid white;
@@ -216,66 +217,66 @@ textarea {
   height: 20px;
   width: 50%;
 }
-/* line 19, ../../app/stylesheets/main.sass */
+/* line 20, ../../app/stylesheets/main.sass */
 .header li {
   display: inline-block;
   padding-top: 2px;
   padding-left: 1em;
   padding-right: 1em;
 }
-/* line 25, ../../app/stylesheets/main.sass */
+/* line 26, ../../app/stylesheets/main.sass */
 .header li a {
   color: #dcdcdc;
   text-decoration: none;
 }
-/* line 29, ../../app/stylesheets/main.sass */
+/* line 30, ../../app/stylesheets/main.sass */
 .header li a:hover {
   color: #f6f6f6;
 }
 
-/* line 32, ../../app/stylesheets/main.sass */
+/* line 33, ../../app/stylesheets/main.sass */
 a {
   color: #3b95e9;
   text-decoration: underline;
 }
-/* line 36, ../../app/stylesheets/main.sass */
+/* line 37, ../../app/stylesheets/main.sass */
 a:hover {
   color: #69aeee;
   text-decoration: none;
 }
 
-/* line 40, ../../app/stylesheets/main.sass */
+/* line 41, ../../app/stylesheets/main.sass */
 #login_link {
   position: absolute;
   top: 13px;
   right: 40px;
 }
 
-/* line 45, ../../app/stylesheets/main.sass */
+/* line 46, ../../app/stylesheets/main.sass */
 body {
   background-color: #082449;
   color: #86aad1;
   font-family: helvetica, arial, sans-serif;
 }
 
-/* line 50, ../../app/stylesheets/main.sass */
+/* line 51, ../../app/stylesheets/main.sass */
 h1 {
   font-size: 2.5em;
   margin-bottom: 0.5em;
 }
 
-/* line 53, ../../app/stylesheets/main.sass */
+/* line 54, ../../app/stylesheets/main.sass */
 h2 {
   font-size: 1.5em;
   margin-bottom: 0.25em;
 }
 
-/* line 56, ../../app/stylesheets/main.sass */
+/* line 57, ../../app/stylesheets/main.sass */
 h3 {
   font-size: 0.9em;
 }
 
-/* line 59, ../../app/stylesheets/main.sass */
+/* line 60, ../../app/stylesheets/main.sass */
 .container {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -283,58 +284,74 @@ h3 {
   -ms-border-radius: 8px;
   -khtml-border-radius: 8px;
   border-radius: 8px;
+  -moz-box-shadow: #222222 1px 1px 5px 0;
+  -webkit-box-shadow: #222222 1px 1px 5px 0;
+  -o-box-shadow: #222222 1px 1px 5px 0;
+  box-shadow: #222222 1px 1px 5px 0;
   background-color: #143c69;
+  border-top: 1px solid #1c5494;
+  border-left: 1px solid #1c5494;
   color: #ced4da;
   padding: 1em;
   width: 360px;
 }
 
-/* line 67, ../../app/stylesheets/main.sass */
+/* line 71, ../../app/stylesheets/main.sass */
+#team_name {
+  display: block;
+}
+
+/* line 74, ../../app/stylesheets/main.sass */
+.name_container {
+  display: inline-block;
+}
+
+/* line 77, ../../app/stylesheets/main.sass */
 .congressman {
   display: inline-block;
   margin-bottom: 1em;
   width: 300px;
 }
-/* line 73, ../../app/stylesheets/main.sass */
+/* line 83, ../../app/stylesheets/main.sass */
 .congressman .thumb img {
   border-radius: 8px;
   float: left;
 }
-/* line 77, ../../app/stylesheets/main.sass */
+/* line 87, ../../app/stylesheets/main.sass */
 .congressman ul {
   margin-left: 6em;
   padding-top: 0.3em;
 }
-/* line 81, ../../app/stylesheets/main.sass */
+/* line 91, ../../app/stylesheets/main.sass */
 .congressman ul li {
   margin-left: 1em;
 }
 
-/* line 85, ../../app/stylesheets/main.sass */
+/* line 95, ../../app/stylesheets/main.sass */
 ul.square {
   list-style: square inside;
 }
-/* line 88, ../../app/stylesheets/main.sass */
+/* line 98, ../../app/stylesheets/main.sass */
 ul.disc {
   list-style: disc inside;
 }
 
-/* line 91, ../../app/stylesheets/main.sass */
+/* line 101, ../../app/stylesheets/main.sass */
 .rep {
   color: #800c1f;
 }
 
-/* line 94, ../../app/stylesheets/main.sass */
+/* line 104, ../../app/stylesheets/main.sass */
 .dem {
   color: #082449;
 }
 
-/* line 97, ../../app/stylesheets/main.sass */
+/* line 107, ../../app/stylesheets/main.sass */
 .ind {
   color: #dcdcdc;
 }
 
-/* line 100, ../../app/stylesheets/main.sass */
+/* line 110, ../../app/stylesheets/main.sass */
 .green {
   color: green;
 }

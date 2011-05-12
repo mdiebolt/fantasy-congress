@@ -69,11 +69,12 @@ class UsersController < ApplicationController
   def draft_congressmen
     user_id = params[:user_id]
     congressmen_ids = params[:congressmen_ids]
+    name = params[:name]
 
     UserCongressman.find_all_by_user_id(user_id).each(&:destroy)
 
     results = congressmen_ids.map do |congressman_id|
-      UserCongressman.create({ :user_id => user_id, :congressman_id => congressman_id })
+      UserCongressman.create({ :user_id => user_id, :congressman_id => congressman_id, :name => name })
     end
 
     respond_to do |format|

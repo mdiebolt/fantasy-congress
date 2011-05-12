@@ -8,6 +8,37 @@
       margin-right: auto
       width: 50%
 
+    .activity
+      +border-right-radius(8px)
+      +bounds(230px, 400px)
+      +box-shadow(darken(#082449, 10%), 1px, 1px)
+
+      background-color: $red
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#590815), to(#800C1F), color-stop(0.7, #800C1F))
+      border-top: 1px solid $light_red
+      color: #CED4DA
+      left: 0
+      position: fixed
+      top: 120px
+
+      h2
+        +text-shadow(#111, 0, 1px, 0)
+
+        left: 1em
+        margin-top: 0.25em
+        position: fixed
+
+      ul
+        margin-left: 1em
+        margin-top: 2.5em
+        padding-left: 1em
+        padding-right: 1em
+
+        li
+          font-size: 80%
+          margin-bottom: 1em
+
+
     .container
       margin: auto
       width: 620px
@@ -22,7 +53,7 @@
         width: 260px
 
 %h1
-  #{user.display_name}'s roster
+  #{current_user.user_congressmen[0].name || user.display_name}'s roster
 
 - if @data.empty?
   You don't have a team.
@@ -30,3 +61,16 @@
 - else
   .congress.container
     = render :partial => "congressman", :collection => @data
+
+.activity
+  %h2 Recent Activity
+  %ul
+
+:coffee
+  $.ajax
+    dataType: "jsonp"
+    success: (data) ->
+      for tweet in data
+        $('.activity ul').append('<li>' + tweet.text + '</li>')
+    type: "GET"
+    url: "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=senatorboxer&count=5"
