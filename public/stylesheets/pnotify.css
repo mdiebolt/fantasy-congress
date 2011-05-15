@@ -1,0 +1,85 @@
+/* line 1, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify {
+  top: 18px;
+  right: 18px;
+  position: absolute;
+  height: auto;
+  z-index: 9999;
+}
+
+/* line 8, ../../app/stylesheets/pnotify.sass */
+html > body .ui-pnotify {
+  position: fixed;
+}
+
+/* line 11, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify .ui-pnotify-shadow {
+  margin: 0;
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  bottom: -0.2em;
+  right: -0.2em;
+  z-index: -1;
+}
+
+/* line 20, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-container {
+  background-position: 0 0;
+  padding: 0.8em;
+  height: 100%;
+}
+
+/* line 25, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-closer {
+  float: right;
+  margin-left: 0.2em;
+}
+
+/* line 29, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-title {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+/* line 35, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-text {
+  display: block;
+}
+
+/* line 38, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-icon, .ui-pnotify-icon span {
+  display: block;
+  float: left;
+  margin-right: 0.2em;
+}
+
+/* line 43, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-history-container {
+  position: absolute;
+  top: 0;
+  right: 37px;
+  width: 70px;
+  border-top: none;
+  z-index: 10000;
+}
+
+/* line 51, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-history-container .ui-pnotify-history-header {
+  padding: 2px;
+}
+
+/* line 54, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-history-container button {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+/* line 59, ../../app/stylesheets/pnotify.sass */
+.ui-pnotify-history-container .ui-pnotify-history-pulldown {
+  display: block;
+  margin: 0 auto;
+}

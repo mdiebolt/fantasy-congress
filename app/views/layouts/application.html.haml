@@ -10,7 +10,7 @@
       if(!window.jQuery) {
         document.write(unescape('%3Cscript src="/javascripts/jquery.min.js"%3E%3C/script%3E'));
       }
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', 'site', 'jquery.pnotify.min'
     = csrf_meta_tag
   %body
     - if current_user

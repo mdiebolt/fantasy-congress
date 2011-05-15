@@ -3,6 +3,9 @@
     @import util
     @import partials/base
 
+    h1
+      display: inline-block
+
     #filter
       margin-left: 1em
       width: 297px
@@ -33,6 +36,8 @@
       img
         +border-radius
 
+        margin-right: 0.3em
+
       .slot
         +border-radius
         +bounds(100px, 125px)
@@ -41,30 +46,20 @@
         border: 2px dashed darken($gray, 20)
         box-sizing: border-box
         display: inline-block
+        margin-right: 0.3em
 
     #save
       margin-left: 1em
 
-%h1 Draft your new team!
-.slots
-  .slot
-    .gloss
-  .slot
-    .gloss
-  .slot
-    .gloss
-  .slot
-    .gloss
-  .slot
-    .gloss
-  .slot
-    .gloss
-  .slot
-    .gloss
-.name_container
-  %input#team_name(type="text" value="#{current_user.display_name}'s team")
+%div
+  %h1 Draft your new team!
   %button#save
     Save team
+.name_container
+  %input#team_name(type="text" value="#{current_user.display_name}'s team")
+.slots
+  - 7.times do
+    .slot>
 
 .info
   %span.number 0
@@ -162,6 +157,8 @@
       if total_selected != 7
         alert("Please select 7 legislators")
       else
+        notify("saving...")
+
         user_id = "#{current_user.id}"
         congressmen_ids = $('.congressman.selected').map((index, element) ->
           return $(element).data('id')
@@ -174,4 +171,5 @@
 
         $('.congressman.selected').removeClass('selected')
 
-        $.post "#{draft_congressmen_user_path(current_user.id)}", data
+        $.post "#{draft_congressmen_user_path(current_user.id)}", data, (data) ->
+          notify("<a href=/users/#{current_user.id}>" + data[0]["user_congressman"]["name"] + "</a> successfully saved!")

@@ -16,6 +16,7 @@ button, .button {
   -webkit-box-shadow: black 0 1px 5px 0;
   -o-box-shadow: black 0 1px 5px 0;
   box-shadow: black 0 1px 5px 0;
+  text-shadow: #230308 1px 1px 1px;
   border-top: 1px solid #dd1536;
   background-color: #800c1f;
   background: -webkit-gradient(linear, left top, left bottom, from(#510814), to(#800c1f));
@@ -28,13 +29,13 @@ button, .button {
   text-decoration: none;
   vertical-align: middle;
 }
-/* line 23, ../../app/stylesheets/button.sass */
+/* line 24, ../../app/stylesheets/button.sass */
 button:hover, .button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#480711), to(#770b1d));
   border-top-color: #800c1f;
-  background: #800c1f;
   color: #dcdcdc;
 }
-/* line 28, ../../app/stylesheets/button.sass */
+/* line 29, ../../app/stylesheets/button.sass */
 button:active, .button:active {
   border-top-color: #510814;
   background: #510814;

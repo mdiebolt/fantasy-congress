@@ -23,6 +23,8 @@ body > form
     width: 100%
 
 form, #new_user, #new_user_session
+  +pop($component)
+
   .field_with_errors
     display: inline
 
@@ -86,5 +88,7 @@ textarea
   margin-bottom: 0
 
 #user_session_submit
+  margin-left: 2px
   margin-top: 1em
+  width: 296px
 

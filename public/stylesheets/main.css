@@ -57,7 +57,7 @@ a:hover {
 /* line 41, ../../app/stylesheets/main.sass */
 #login_link {
   position: absolute;
-  top: 13px;
+  top: 5px;
   right: 40px;
 }
 
@@ -111,56 +111,51 @@ h3 {
 }
 
 /* line 74, ../../app/stylesheets/main.sass */
-.name_container {
-  display: inline-block;
-}
-
-/* line 77, ../../app/stylesheets/main.sass */
 .congressman {
   display: inline-block;
   margin-bottom: 1em;
   width: 300px;
 }
-/* line 83, ../../app/stylesheets/main.sass */
+/* line 80, ../../app/stylesheets/main.sass */
 .congressman .thumb img {
   border-radius: 8px;
   float: left;
 }
-/* line 87, ../../app/stylesheets/main.sass */
+/* line 84, ../../app/stylesheets/main.sass */
 .congressman ul {
   margin-left: 6em;
   padding-top: 0.3em;
 }
-/* line 91, ../../app/stylesheets/main.sass */
+/* line 88, ../../app/stylesheets/main.sass */
 .congressman ul li {
   margin-left: 1em;
 }
 
-/* line 95, ../../app/stylesheets/main.sass */
+/* line 92, ../../app/stylesheets/main.sass */
 ul.square {
   list-style: square inside;
 }
-/* line 98, ../../app/stylesheets/main.sass */
+/* line 95, ../../app/stylesheets/main.sass */
 ul.disc {
   list-style: disc inside;
 }
 
-/* line 101, ../../app/stylesheets/main.sass */
+/* line 98, ../../app/stylesheets/main.sass */
 .rep {
   color: #800c1f;
 }
 
-/* line 104, ../../app/stylesheets/main.sass */
+/* line 101, ../../app/stylesheets/main.sass */
 .dem {
   color: #082449;
 }
 
-/* line 107, ../../app/stylesheets/main.sass */
+/* line 104, ../../app/stylesheets/main.sass */
 .ind {
   color: #dcdcdc;
 }
 
-/* line 110, ../../app/stylesheets/main.sass */
+/* line 107, ../../app/stylesheets/main.sass */
 .green {
   color: green;
 }

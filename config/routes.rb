@@ -4,6 +4,7 @@ FantasyCongress::Application.routes.draw do
   resources :users do
     member do
       get :draft
+      get :challenge
 
       post :draft_congressmen
     end

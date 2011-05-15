@@ -1,0 +1,18 @@
+%style
+  :sass
+    @import partials/base
+    @import util
+
+    .gloss
+      +gloss
+
+      position: absolute
+
+%h1= @congressman.name
+.container
+  %ul
+    %li Website: #{@congressman.name}.com
+    %li Twitter: @#{@congressman.name}
+  .gloss
+  .thumb
+    = image_tag("congress/#{@congressman.nyt_api_id}.jpg", :alt => @congressman.name, :title => @congressman.name)

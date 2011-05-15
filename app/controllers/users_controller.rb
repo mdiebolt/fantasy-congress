@@ -52,6 +52,10 @@ class UsersController < ApplicationController
     @data = current.zip(prev)
   end
 
+  def index
+    @users = User.all
+  end
+
   def draft
     @congressmen = Congressman.all
 

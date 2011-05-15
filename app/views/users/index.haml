@@ -1,0 +1,23 @@
+%style
+  :sass
+    .info
+      margin-bottom: 1em
+      position: relative
+
+      button
+        bottom: 0
+        height: 50px
+        margin: auto
+        position: absolute
+        right: 1em
+        top: 0
+
+%h2 Players
+- @users.each do |user|
+  .info.container
+    %p= user.display_name
+    %p Wins: 0
+    %p Losses: 0
+
+    - unless user == current_user
+      %button Challenge

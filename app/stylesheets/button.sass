@@ -7,6 +7,7 @@ button
 button, .button
   +border-radius(10px)
   +box-shadow(black, 0, 1px)
+  +text-shadow(darken($dark_red, 10%), 1px, 1px)
 
   border-top: 1px solid $lighter_red
   background-color: $red
@@ -21,8 +22,8 @@ button, .button
   vertical-align: middle
 
   &:hover
+    background: -webkit-gradient(linear, left top, left bottom, from(darken($dark_red, 2%)), to(darken($red, 2%)))
     border-top-color: $red
-    background: $red
     color: $gray
 
   &:active

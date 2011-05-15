@@ -12,4 +12,8 @@ class CongressmenController < ApplicationController
 
     @data = current.zip(prev)
   end
+
+  def show
+    @congressman = Congressman.find params[:id]
+  end
 end
