@@ -54,13 +54,12 @@
       ul
         width: 260px
 
-%h1
-  #{current_user.user_congressmen[0].name || user.display_name}'s roster
-
 - if @data.empty?
   You don't have a team.
   = link_to "Draft one now", draft_user_path(current_user)
 - else
+  %h1
+    #{current_user.user_congressmen[0].name || user.display_name}'s roster
   .congress.container
     = render :partial => "congressman", :collection => @data
 
